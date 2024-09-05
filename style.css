@@ -1,0 +1,764 @@
+html,body
+{
+	overflow-x: hidden;
+	margin: 0;
+	padding: 0;
+    font-family:'Open Sans Condensed', sans-serif;
+	width: 100%;
+    height: 100%;
+	
+}
+
+#gridContainer
+{
+	display: grid;
+	grid-template-rows:[header] auto [content] 1fr [footer] auto;
+	grid-template-columns: [main] 100%;
+	grid-template-areas:
+		    "header header header"
+			"main main main"
+			"footer footer footer";
+    min-height: 100%;
+    width: 100%;
+	
+}
+/**header style*/
+header
+{
+	grid-area: header;
+	background-color: black;
+	margin: 0;
+	padding: 0;
+	height: 100px;
+	width: 100%;
+	position: fixed;
+}
+
+#gridHeader{
+	display: grid;
+	grid-auto-rows: 100px;
+	grid-template-columns: 30% 70%;
+	grid-template-areas: 
+		"h1 nav";
+	color: #FFFFFF;
+}
+h1{
+	grid-area: h1;
+	padding: 4% 0 10% 10%;
+	/*top - right - bottom-  left */
+	margin: 1% 15% 0 5%;
+	font-size: 150%;
+	font-weight: 200;
+
+}
+/*Navigation bar on the top of the webpage*/
+#gridHeader nav
+{
+	grid-area: nav;
+	padding: 0;
+	margin: 1% 5% 0 0;
+}
+
+#gridHeader ul, .books ul, .copyR ul
+{
+	display:flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+#gridHeader a, .copyR a
+{
+    display: inline-block;	
+	padding: 0;
+	margin: 0;
+	color: #FFFFFF;
+	text-decoration: none;
+	font-size: 100%;
+	font-weight: 200;
+}
+
+#gridHeader li, .books li, .copyR li
+{
+	width: auto;
+	margin: 0 0 0 2%;
+}
+
+
+#gridHeader a:hover, .copyR a:hover{
+	font-size: 120%;
+}
+.currentNav{
+	text-decoration: underline;
+}
+#gridHeader p{
+	font-weight: 100;
+	text-align: right;
+	padding: 0;
+	margin: 0;
+	margin-top: 50px;
+	width: 100%;
+
+
+}
+/*Contents*/
+/*Setting main contents*/
+/* Main grid*/
+#mainGrid
+{
+	grid-area: main;
+	display: grid;
+	grid-template-rows: 500px auto;
+	grid-template-columns: 100%;
+}
+.imgBG
+{
+	grid-row: 1;
+	background-image: url(images/pexels-manfred-hofferer-733252.jpg);
+	background-position:center;
+	justify-content: center;
+	width: 100%;
+}
+.imgBG div{
+	width: 25%;
+	height: auto;
+    
+	margin: 150px 32.5% 0 32.5%;
+	background-color: #F8F8F8;
+	padding: 5%;
+	border-radius: 10%;
+}
+.null{
+	display: none;
+}
+/* books list style */
+.books div{
+	grid-row: 2;
+	width: 100%;
+	text-align: center;
+}
+
+.books table, #orderForm{
+	background-color: #ffffff;
+	width: 90%;
+	margin: 2% auto 2% auto;
+}
+.books th, .books td, #orderForm span{
+    padding: 8px;
+	font-size: 90%;
+}
+.books tr, #orderBooks div{
+	background-color: #f0f5f5;
+}
+
+.books th, .th{
+	color: #FFFFFF;
+	background-color: #3d5c5c;
+}
+.books tr:nth-child(odd), #orderBooks div:nth-child(odd){
+	 background-color: #e0ebeb;
+}
+.books ul{
+	margin-right: 5%;
+	margin-bottom: 3%;
+}
+
+a{
+	color: #000000;
+	text-decoration: underline;
+	padding: 2%;
+}
+.books a:hover{
+	color: #3d5c5c ;
+}
+.current{
+	text-decoration: none;
+	color:#3d5c5c;
+}
+
+.books h2
+{
+	color: #3d5c5c;
+	padding:20px 5% 10px 5%;
+	margin: 0;
+	font-size: 100%;
+}
+h3{
+	color: #3d5c5c;
+	font-weight: 500;
+}
+/*login form style*/
+#mainForm form{
+	border-radius: 30px;
+	background-color: #F8F8F8;
+	display: flex;
+	flex-direction: column;
+}
+
+#mainForm legend, #editBook legend, #slideForm legend{
+	font-weight: 400;
+	font-size: 100%;
+	text-align: center;
+	margin-bottom: 10%;
+	color:#3d5c5c;
+}
+#mainForm input, #editBook input,#editBook textarea, select,#orderForm input,#slideForm input{
+	padding: 5%;
+	margin-bottom: 5%;
+	border-radius: 3px;
+  	box-sizing: border-box;
+	background-color: #FFFFFF;
+	border: none;
+ 
+	color: #3d5c5c;
+	font-size: 100%;
+}
+#orderForm input{
+	border: solid 1px;
+}
+input[type=text]::placeholder,input[type=password]::placeholder{
+		color: #969696;
+	 	font-size: 80%;
+}
+#mainForm input[type=submit], #editBook input[type=submit],#orderForm input[type=submit], #slideForm input[type=submit] {
+	background-color: #3d5c5c;
+	color: #fafafa;
+}
+#mainForm  input[type=submit]:hover, #editBook input[type=submit]:hover, #orderForm input[type=submit]:hover, #orderForm input[type=submit]:disabled, #slideForm input[type=submit]:hover {
+	background-color: #527a7a;
+	color: #FFFFFF;
+}
+#mainForm span{
+	color: red;
+	margin:0;
+	padding: 0;
+	font-size: 80%;
+}
+#slideOut{
+	position: fixed;
+  	top: 0;
+  	right: -5px;
+  	height: 100%;
+	background-color: #000000;
+	width: 0;
+	transition-duration: 1s;
+}
+#slideForm{
+	width: 80%;
+	margin: 10% auto 10% auto;
+}
+
+#slideForm legend{
+	margin: 15% auto 15% auto;
+}
+#slideForm input{
+	width: 80%;
+	margin-left: 10%;
+}
+#slideOut a{
+	font-weight: 600 !important;
+	font-size: 40px !important;
+	margin: 4%;
+}
+#slideOut a:hover{
+	color: #527a7a;
+}
+.alert{
+	padding: 2px;
+	margin-bottom: 5%;
+	background-color:#ffe6e6;
+	border: solid 1px #ff0000;
+}
+.alert p{
+	color: black;
+	font-size: 80%;
+}
+.alert span{
+  margin-right: 2px;
+  color: #FFFFFF;
+  font-weight: bold;
+  text-shadow: -1px 0 #ff0000, 0 1px #ff0000, 1px 0 #ff0000, 0 -1px #ff0000;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.alert span:hover{
+	color: #ff0000;
+}
+/*edit form specification*/
+#editBook{
+	display: grid;
+	grid-template-columns: 30% 70%; 
+	width:90%;
+	margin: 2% auto 2% auto;
+}
+#editBook legend{
+	grid-column-start: 1;
+	grid-column-end: 3;
+	margin: 2% auto 2% auto;
+	font-size: 150%;
+}
+#editBook input{
+	grid-column: 2;
+	padding: 2%;
+	margin: 3%;
+	width: 30%;
+}
+
+#editBook input[type=submit]{
+	width: 50%;
+	grid-column-start: 1;
+	grid-column-end: 3;
+	margin: 2% auto 2% auto;
+	
+}
+#editBook textarea{
+	grid-column: 2;
+	padding: 1%;
+	height: auto;
+	margin: 3%;
+}
+#editBook label, #orderForm label{
+	grid-column: 1;
+	margin: auto 2% auto 2%;
+	color: #527a7a;
+}
+
+select{
+	height: 50%;
+	margin: 3%;
+    padding: 1%;
+}
+#editBook span{
+	grid-column: 2;
+		margin: 0;
+	margin-left: 3%;
+
+	color: red;
+	font-size: 80%;
+}
+.bookForm{
+	grid-row: 2;
+	width: 80%;
+	border-radius: 30px;
+	background-color: #F8F8F8;
+	margin: 2% auto 2% auto;
+}
+
+p{
+	margin: 3%;
+	font-size: 100%;
+}
+
+/*index.php style*/
+.index{
+	grid-row: 2;
+	display: grid;
+	grid-template-columns: 20% 60% 20%;
+	grid-template-rows: 100%;
+	line-height: 150%;
+}
+/*Aside elements*/
+#offers{
+	grid-column-start: 1;
+	grid-column-end: 1;
+	padding: 300px 10% 10% 10%;
+	background-color: #f0f5f5;
+	margin: 2px;
+}
+#offers aside, #JSONoffers aside{
+	height: 690px;
+}
+#offers p, #JSONoffers p{
+	font-style: oblique;
+}
+.category{
+	font-style: normal;
+	color: #527a7a;
+	font-weight: 100;
+}
+.price, .bookPrice{
+	font-weight: 100;
+	color: #666699;
+}
+#JSONoffers{
+	grid-column-start: 3;
+	grid-column-end: 4;
+	padding: 10%;
+	background-color: #f0f5f5;
+	margin: 2px;
+}
+img{
+	width: 100%;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	margin-right: 5%;
+}
+/*mainContent*/
+#mainContent{
+	grid-column-start: 2;
+	grid-column-end: 3;
+	display: flex;
+	flex-direction: column;
+
+}
+#mainContent section{
+	height: 230px;
+	padding: 5%;
+	background-color: #f0f5f5;
+	margin: 2px;
+}
+#mainContent img,.overview img {
+	float: left;
+	height: 100%;
+	width: 46%;
+}
+
+.text{
+	vertical-align:middle;
+	height: 100%;
+}
+.text h2{
+	color: #000000;
+	font-style: oblique;
+	font-weight: 500;
+	font-size: 120%;
+}
+
+/* Overview updated book details*/
+.overview, .credits{
+	background-color: #f0f5f5;
+	margin: 5%;
+	padding: 10%;
+	border-radius: 30px;
+}
+.overview span{
+	color: #3d5c5c;
+	font-weight: 400;
+}
+
+.overview p{
+	font-weight: 100;
+}
+.overview legend, .orderBooks legend{
+	margin-bottom: 3%;
+	color: #527a7a;
+}
+/*order book form*/
+.orderBooks{
+	background-color: #f0f5f5;
+	margin: 5%;
+	padding: 5%;
+	width: auto;
+	border-radius: 30px;	
+}
+.orderBooks h2, .credits h2{
+	margin: 0;
+	margin-bottom: 2%;
+	color: #3d5c5c;
+}
+
+.catDesc{
+	color: #527a7a;
+	font-weight: 100;
+}
+.bookYear, .pubName{
+	color: #000000;
+	font-weight: 100;
+}
+#orderBooks div{
+	display: table-row;
+}
+#orderForm span{
+	display: table-cell;
+	margin-right: 2%;
+}
+#orderForm{
+	display: table;
+	width: 100%;
+	background-color: #f0f5f5;
+}
+#orderBooks{
+	margin-bottom: 2%;
+}
+#orderForm input{
+	padding: 1%;
+}
+#orderForm select{
+	width: 200px;
+}
+/*Starting footer*/
+
+footer{
+	grid-row: footer;
+	height: auto;
+	background-color: #000000;
+	padding: 2%;
+	font-size: 80%;
+    display: flex;
+    flex-direction: row;
+}
+
+.copyR nav
+{
+	
+    width: 50%;
+	padding: 0;
+	margin: 0;
+    
+}
+.copyR li{
+	border-right: solid thin #FFFFFF;
+	width: 200px;
+	text-align: center;
+	
+}
+.copyR p
+{
+	color: #FFFFFF;
+	margin: 0;
+	font-size: 100%;
+    width: 50%;
+}/*end footer and copyright*/
+
+/*cretits page*/
+
+.credits p{
+	margin:0 0 3% 0;
+	padding: 0;
+	width: 100%;
+}
+.credits h3{
+	margin: 2%;
+	font-size: 100%;
+}
+
+.studentDetails{
+	display: grid;
+	grid-template-columns: 50% 50%;
+	margin: 0 0 5% 0;
+}
+.studentDetails p{
+	grid-column: 2;
+	max-width: 100%;
+}
+.studentDetails label{
+	grid-column: 1;
+	max-width: 100%;
+	margin: 0;
+	padding-top: 2%;
+	color: #527a7a;
+	font-weight: 100;
+	font-size: 80%;
+}
+.references{
+	width: 100%;
+	overflow-wrap: break-word;
+}
+.references a{
+    color: #666699;
+	padding: 0 !important;
+	width: 100% !important;
+
+}
+.references a:hover{
+	color: #527a7a;
+}
+.references span{
+	font-style: italic;
+}
+/* Media query for larger screens - 1350 or more*/
+@media screen and (min-width: 1350px)
+{
+	body{
+		background-color: #f0f5f5;
+	}
+	
+#mainGrid
+{
+	margin: 0 auto 0 auto;
+    width: 62%;
+
+}
+#mainContent {
+	border: solid 2px #FFFFFF;	
+}
+	#mainContent section{
+		border-bottom: solid 2px #FFFFFF;	
+	}
+	header
+{
+	position: fixed;left:0;
+}
+
+}
+@media screen and (max-width: 760px)
+{
+	h1{
+		font-size: 100%;
+	}
+
+
+.copyR li{
+	width: 100%;
+}
+	.copyR p{
+		font-size: 80%;
+	}
+#gridHeader a, #gridHeader p, .copyR a
+{ 
+	font-size: 80%;
+}
+#gridHeader a:hover{
+	font-size: 100%;
+}
+
+	
+/*index*/
+.text{
+	font-size: 70%;
+	line-height: 50%;
+}
+
+.text h2{
+	line-height: 100%;	
+}
+#mainContent section{
+	height: 115px;
+	padding: 1%;
+}
+
+#offers aside, #JSONoffers aside{
+	height: 345px;
+}
+#offers p, #JSONoffers p{
+	font-size: 80%;
+	line-height: 120%;
+}
+.category, .price{
+	line-height: 150%;
+}
+#offers{
+	padding: 10% 10% 10% 10%;
+}
+
+}
+/* Media query for mobile sized devices - 550px or less*/
+@media screen and (max-width: 550px)
+{
+
+    
+	h1, #gridHeader a:hover,#editBook, label{
+		font-size: 70%;
+	}
+	h2{
+		font-size: 100%;
+}	
+	h3{
+		font-size: 80%;
+	}
+    header{
+    height: 70px;
+    }
+	#gridHeader a,#gridHeader p, .studentDetails label,p , .books th, .books td, #orderForm span{
+		font-size: 50%;
+	}
+	input[type=text]{
+		display: block;
+	}
+	/*index.php style*/
+.index{
+	grid-template-columns: 40% 60%;
+	grid-template-rows: 50% 50%;
+}
+/*Aside elements*/
+#offers{
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 1;
+	grid-row-end: 2;
+	font-size: 90%;
+
+}
+#offers aside, #JSONoffers aside{
+	height: 200px;
+	display:flex;
+	flex-direction: column;
+}
+#JSONoffers{
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 2;
+	grid-row-end: 3;
+		font-size: 90%;
+}
+
+/*mainContent*/
+#mainContent{
+	grid-column-start: 2;
+	grid-column-end: 4;
+	grid-row-start: 1;
+	grid-row-end: 3;
+}
+/*mainContent*/
+#mainContent{
+	grid-column-start: 2;
+	grid-column-end: 3;
+}
+#mainContent section{
+	display: flex;
+	flex-direction: column;
+	height: auto;
+	justify-content: center;
+	padding: 5%;
+}
+#mainGrid
+{
+	grid-area: main;
+	display: grid;
+	grid-template-rows: 300px auto;
+	grid-template-columns: 100%;
+}
+
+/*Starting footer*/
+	footer{
+		height: 50px;
+		width: 100%;
+        display:grid;
+        grid-template-rows: auto auto;
+        grid-template-columns: 100%;
+	}
+.copyR nav
+{
+    grid-row: 2;
+    width: 80%;
+    margin: 1% auto 1% auto;
+     
+}
+.copyR li{
+     font-size: 60%;
+ }
+.copyR p
+{
+    grid-row: 1;
+	font-size: 60%;
+    margin: 1% auto 2% auto;
+}/*end footer and copyright*/
+
+
+select{
+	width: 100%;
+	display:block;
+}
+
+.orderBooks{
+
+	margin: 3%;	
+}
+.overview, .credits{
+	margin: 2%;
+	width: 80%;
+}
+}
